@@ -1,0 +1,55 @@
+name: Atualizar e publicar
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "*/15 * * * *"   # o GitHub costuma atrasar; dá para disparar de fora (workflow_dispatch) se precisar
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Liquipedia (1 parse por rodada; resultados a cada 3 h) + Polymarket; erro de uma fonte não para a outra
+      - name: Painel do dia (jogos, preços, registro, força dos times)
+        run: python motor/atualizar.py
+        env:
+          PUBLICADO: https://maxmox.github.io/CS2
+      # só quando a força dos times foi atualizada (a cada 3 h): commits do GITHUB_TOKEN não disparam a Action de novo
+      - name: Guardar força, apelidos e registro no repositório
+        run: |
+          if [ -f data/.commit ]; then
+            git add data/forca.json data/apelidos_liquipedia.json data/registro
+            if ! git diff --cached --quiet; then
+              git -c user.name="github-actions[bot]" -c user.email="41898283+github-actions[bot]@users.noreply.github.com" commit -m "Força dos times e registro"
+              git pull --rebase --autostash && git push
+            fi
+          fi
+        continue-on-error: true
+      - name: Marcar os arquivos JS com a versão (cache do navegador)
+        run: |
+          v="${GITHUB_SHA::7}"
+          sed -i -E "s#(src=\"js/[a-z0-9_]+\.js)\"#\1?v=$v\"#g" *.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4

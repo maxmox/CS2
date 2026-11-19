@@ -1,0 +1,89 @@
+/* CS2 · Painel do dia — mesmas fichas de cor do Trader Poly (tokens em :root; verde = valor, vermelho = contra). */
+:root {
+  --bg: #f5f6f8; --panel: #ffffff; --ink: #14202e; --ink-2: #4b5868; --ink-3: #7a8594; --line: #dde2e8;
+  --accent: #1d5fa8; --accent-soft: #e6eef8;
+  --good: #11753f; --good-bg: #e3f3ea; --warn: #9a6100; --warn-bg: #fbf0d9; --bad: #b42323; --bad-bg: #fbe5e5;
+  --live: #c2410c; --live-bg: #fdeee4;
+  --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151c; --panel: #161e28; --ink: #e8edf3; --ink-2: #a9b4c1; --ink-3: #7d8896; --line: #2a3542;
+    --accent: #6ea8ea; --accent-soft: #1b2b3e; --good: #4fc485; --good-bg: #133022; --warn: #e2a640; --warn-bg: #33270f;
+    --bad: #f07a7a; --bad-bg: #3a1a1a; --live: #fb923c; --live-bg: #3a2312; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151c; --panel: #161e28; --ink: #e8edf3; --ink-2: #a9b4c1; --ink-3: #7d8896; --line: #2a3542;
+  --accent: #6ea8ea; --accent-soft: #1b2b3e; --good: #4fc485; --good-bg: #133022; --warn: #e2a640; --warn-bg: #33270f;
+  --bad: #f07a7a; --bad-bg: #3a1a1a; --live: #fb923c; --live-bg: #3a2312; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+h2 { font-family: var(--display); font-size: 18px; font-weight: 800; margin: 0; }
+p { margin: 0; }
+a { color: var(--accent); }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--ink-3); font-size: 13px; }
+button { font: inherit; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button:hover { border-color: var(--accent); color: var(--accent); }
+button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.bar { position: sticky; top: 0; z-index: 10; background: var(--panel); border-bottom: 1px solid var(--line); }
+.bar-in { max-width: 1180px; margin: 0 auto; padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.brand { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.brand b { font-family: var(--display); font-weight: 800; font-size: 19px; }
+.brand span { color: var(--ink-3); font-size: 13px; }
+.bar-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pill { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); border: 0; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 20px 16px 64px; display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
+.aviso { background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 8px 12px; font-size: 13px; }
+
+.filtros { display: grid; gap: 10px; }
+.abas { display: flex; gap: 6px; flex-wrap: wrap; }
+.abas button.ativo { background: var(--accent); border-color: var(--accent); color: #fff; }
+.abas button span { font-weight: 400; opacity: .8; margin-left: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: 13px; color: var(--ink-2); }
+.chips label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+.chips input[type="search"] { font: inherit; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--ink); min-width: 0; width: 200px; max-width: 100%; }
+
+.dia { display: grid; gap: 8px; }
+.dia > h2 { margin-top: 8px; }
+.jogo { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; display: grid; gap: 6px; }
+.jogo.so-nosso { box-shadow: inset 3px 0 0 var(--accent); }
+.fonte { color: var(--accent) !important; font-weight: 600; }
+.topo { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; font-size: 12.5px; color: var(--ink-3); }
+.topo .hora { font-family: var(--mono); font-weight: 600; color: var(--ink); font-size: 13px; }
+.topo .st { font-weight: 600; border-radius: 99px; padding: 0 8px; }
+.st.ao-vivo { background: var(--live-bg); color: var(--live); }
+.st.encerrado { background: var(--accent-soft); color: var(--ink-2); }
+.grade { display: grid; grid-template-columns: minmax(150px, 1.5fr) repeat(4, minmax(78px, 1fr)); gap: 2px 12px; align-items: center; }
+.grade .cab { font-size: 11.5px; color: var(--ink-3); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+.grade .t { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.grade .t small { font-weight: 400; color: var(--ink-3); margin-left: 4px; }
+.grade .c { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 13.5px; }
+.grade .c small { color: var(--ink-3); font-size: 11.5px; margin-left: 3px; }
+.ganhou { color: var(--good); }
+.alerta { color: var(--warn); font-size: 11.5px; font-weight: 600; }
+.aprox { color: var(--warn); cursor: help; }
+.mapas { font-size: 12.5px; }
+.mapas summary { cursor: pointer; color: var(--ink-3); }
+.mapas .grade { margin-top: 4px; }
+.vazio { padding: 24px; text-align: center; color: var(--ink-3); background: var(--panel); border: 1px dashed var(--line); border-radius: 8px; }
+
+.como { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; font-size: 13.5px; color: var(--ink-2); }
+.como summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+.como-in { display: grid; gap: 8px; margin-top: 8px; max-width: 80ch; }
+
+@media (max-width: 640px) {
+  .grade { grid-template-columns: minmax(110px, 1.3fr) repeat(4, minmax(56px, 1fr)); gap: 2px 6px; }
+  .grade .c { font-size: 12px; }
+  .grade .c small { display: block; margin-left: 0; }
+}

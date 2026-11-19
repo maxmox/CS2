@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS2 Painel</title>
+<meta name="description" content="Jogos de CS2 do dia: preço do Polymarket × precificador próprio (Elo por mapa).">
+<script src="js/tema.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="bar">
+  <div class="bar-in">
+    <div class="brand"><b>CS2 · Painel do dia</b><span id="gerado">carregando…</span></div>
+    <div class="bar-right"><span class="pill" id="forca-ate"></span></div>
+  </div>
+</header>
+<main class="wrap">
+  <div id="erros" class="aviso" hidden></div>
+  <section class="filtros" aria-label="Filtros">
+    <div class="abas" role="tablist">
+      <button type="button" data-st="a começar" class="ativo">Próximos <span></span></button>
+      <button type="button" data-st="ao vivo">Ao vivo <span></span></button>
+      <button type="button" data-st="encerrado">Encerrados <span></span></button>
+      <button type="button" data-st="todos">Todos <span></span></button>
+    </div>
+    <div class="chips">
+      <label><input type="checkbox" id="f-pm"> só com Polymarket</label>
+      <label><input type="checkbox" id="f-sem"> só sem Polymarket (preço nosso)</label>
+      <label><input type="checkbox" id="f-dados"> esconder times com poucos dados</label>
+      <input type="search" id="f-busca" placeholder="time ou torneio">
+    </div>
+  </section>
+  <section id="lista" aria-live="polite"></section>
+  <details class="como">
+    <summary>Como ler</summary>
+    <div class="como-in">
+      <p><b>Polymarket</b>: meio do livro (entre a melhor compra e a melhor venda) = chance do 1º time. "Comprar" mostra o preço que se paga de verdade em cada lado (o lado B custa 1 − melhor compra do A).</p>
+      <p><b>Nosso</b>: precificador próprio, Elo por mapa com os resultados da Liquipedia (torneios S/A/B/C-Tier), série = mapas independentes + calibração por formato. Teste em 2026 (fora da amostra): BO3 log-loss 0,633, BO1 0,646 (moeda = 0,693). É a referência quando o Polymarket não tem o jogo ou o livro está vazio.</p>
+      <p><b>Odd justa</b>: a referência sem margem para comparar com a casa. Com Polymarket = o meio do livro do Polymarket; sem Polymarket = o nosso preço (marcado "nosso", faixa azul à esquerda do jogo).</p>
+      <p><b>Por que o Polymarket manda</b>: em 3.066 séries desde out/2025 (preço 10 min antes) o Polymarket errou menos (log-loss 0,589) que o nosso (0,634); misturar os dois não melhorou fora da amostra e apostar quando discordam perdeu de −18% a −41%. Quando discordam por 10 pp ou mais (número em amarelo ao lado do nosso), quem acertou foi o Polymarket.</p>
+      <p><b>Nomes</b>: ≈ = nome achado por aproximação (confira). "sem histórico" = o time não está na base (sem preço nosso).</p>
+      <p><b>Mapas na base</b>: quantos mapas cada time tem no Elo. Com menos de 20 a força ainda é quase a de um time novo (1400).</p>
+    </div>
+  </details>
+</main>
+<script type="module" src="js/painel.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# gerados a cada rodada: vão só para o site publicado (a Action relê o publicado no começo)
+data/hoje.json
+data/estado.json
+data/.commit
+*.tmp
+__pycache__/

@@ -682,5 +682,24 @@
   "pm_vol": 0,
   "justa": null,
   "venceu": null
+ },
+ "1795304700|Los Niños|Rush": {
+  "inicio": 1795304700,
+  "visto": 1795297993,
+  "bo": 3,
+  "a": "Los Niños",
+  "b": "Rush",
+  "a_liq": "Los Niños",
+  "b_liq": "RUSH Gaming",
+  "n_a": 30,
+  "n_b": 60,
+  "torneio": "CCT South America Challengers #4 Playoffs",
+  "nosso": 0.5322796168128602,
+  "pm_meio": 0.345,
+  "pm_ask": 0.35,
+  "pm_bid": 0.34,
+  "pm_vol": 128.861883,
+  "justa": 0.345,
+  "venceu": null
  }
 }

@@ -720,5 +720,24 @@
   "pm_vol": 243.303631,
   "justa": 0.625,
   "venceu": null
+ },
+ "1795345200|Butterfly|ex-RUSTEC": {
+  "inicio": 1795345200,
+  "visto": 1795338464,
+  "bo": 3,
+  "a": "Butterfly",
+  "b": "ex-RUSTEC",
+  "a_liq": "Butterfly (Russian team)",
+  "b_liq": "ex-RUSTEC",
+  "n_a": 91,
+  "n_b": 148,
+  "torneio": "CCT Europe Playoffs",
+  "nosso": 0.6586518816725858,
+  "pm_meio": 0.585,
+  "pm_ask": 0.59,
+  "pm_bid": 0.58,
+  "pm_vol": 497.313268,
+  "justa": 0.585,
+  "venceu": null
  }
 }

@@ -701,5 +701,24 @@
   "pm_vol": 128.861883,
   "justa": 0.345,
   "venceu": null
+ },
+ "1795316400|Overtake|Detonate": {
+  "inicio": 1795316400,
+  "visto": 1795312217,
+  "bo": 3,
+  "a": "Overtake",
+  "b": "Detonate",
+  "a_liq": null,
+  "b_liq": "DETONATE",
+  "n_a": 0,
+  "n_b": 33,
+  "torneio": "CROSSFIRE Playoffs",
+  "nosso": null,
+  "pm_meio": 0.625,
+  "pm_ask": 0.65,
+  "pm_bid": 0.6,
+  "pm_vol": 243.303631,
+  "justa": 0.625,
+  "venceu": null
  }
 }

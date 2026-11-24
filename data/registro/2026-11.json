@@ -1062,5 +1062,43 @@
   "pm_vol": 164.293412,
   "justa": 0.825,
   "venceu": null
+ },
+ "1795503600|FaZe|Wildcard": {
+  "inicio": 1795503600,
+  "visto": 1795503387,
+  "bo": 1,
+  "a": "FaZe",
+  "b": "Wildcard",
+  "a_liq": "FaZe Clan",
+  "b_liq": "Wildcard",
+  "n_a": 417,
+  "n_b": 323,
+  "torneio": "PGL Major Singapore 2026",
+  "nosso": 0.6913065185519395,
+  "pm_meio": 0.705,
+  "pm_ask": 0.71,
+  "pm_bid": 0.7,
+  "pm_vol": 277242.596644,
+  "justa": 0.705,
+  "venceu": null
+ },
+ "1795504500|Eternal Fire|FlyQuest": {
+  "inicio": 1795504500,
+  "visto": 1795503387,
+  "bo": 1,
+  "a": "Eternal Fire",
+  "b": "FlyQuest",
+  "a_liq": "Eternal Fire",
+  "b_liq": "FlyQuest",
+  "n_a": 267,
+  "n_b": 260,
+  "torneio": "PGL Major Singapore 2026",
+  "nosso": 0.3592039780589238,
+  "pm_meio": 0.595,
+  "pm_ask": 0.6,
+  "pm_bid": 0.59,
+  "pm_vol": 298776.00052,
+  "justa": 0.595,
+  "venceu": null
  }
 }

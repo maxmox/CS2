@@ -1404,5 +1404,43 @@
   "pm_vol": 5716.350791,
   "justa": 0.47,
   "venceu": null
+ },
+ "1795701600|NAVI Junior|STATE": {
+  "inicio": 1795701600,
+  "visto": 1795697861,
+  "bo": 3,
+  "a": "NAVI Junior",
+  "b": "STATE",
+  "a_liq": "Natus Vincere Junior",
+  "b_liq": null,
+  "n_a": 158,
+  "n_b": 0,
+  "torneio": "United21 Group D",
+  "nosso": null,
+  "pm_meio": 0.36,
+  "pm_ask": 0.39,
+  "pm_bid": 0.33,
+  "pm_vol": 1288.0319330000002,
+  "justa": 0.36,
+  "venceu": null
+ },
+ "1795731000|ENCELADE|AXE": {
+  "inicio": 1795731000,
+  "visto": 1795730865,
+  "bo": 3,
+  "a": "ENCELADE",
+  "b": "AXE",
+  "a_liq": "ENCELADE",
+  "b_liq": null,
+  "n_a": 1,
+  "n_b": 0,
+  "torneio": "CCT Europe Contenders #11 Playoffs",
+  "nosso": null,
+  "pm_meio": 0.49,
+  "pm_ask": 0.51,
+  "pm_bid": 0.47,
+  "pm_vol": 1433.3190359999999,
+  "justa": 0.49,
+  "venceu": null
  }
 }
